@@ -8,10 +8,13 @@ class Player
         this.name = name;
     }
 
-    public void SetupPlayer()
+    public string SetupPlayer()
     {
+        Console.Clear();
         Console.Write("Enter player name: ");
-        Name = Console.ReadLine() ?? "Player";
+        name = Console.ReadLine() ?? "Player";
+        return name;
     }
+
   
 }

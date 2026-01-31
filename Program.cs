@@ -10,9 +10,7 @@ class Program
         Player player2 = new Player("");
         player2.SetupPlayer();
 
-
         Game game1 = new Game(0,0,0);
-        
         game1.SetUpGame();
 
         
