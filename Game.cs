@@ -1,33 +1,17 @@
 class Game
 {
-    int targetScore;
-    int targetSets;
-    int targetLegs;
+    private int targetSets;
+    private int targetLegs;
 
-    public Game(int targetLegs, int targetScore, int targetSets)
+    public Game(int targetLegs, int targetSets)
     {
         this.targetLegs = targetLegs;
-        this.targetScore = targetScore;
         this.targetSets = targetSets;
     }
 
     public void SetUpGame()
     {
         Console.Clear();
-        Console.Write("Enter the wanted score you want to play to: ");
-        if (int.TryParse(Console.ReadLine(),out int valueForTargetScore))
-        {
-            targetScore = valueForTargetScore;
-        } else
-        {
-            Console.WriteLine("Not a valid number, please type a number");
-            valueForTargetScore = int.Parse(Console.ReadLine());
-            
-        }
-        Console.WriteLine("You are playing to " + valueForTargetScore);
-        targetScore = valueForTargetScore;
-
-
         Console.Write("Enter the wanted number of Legs you would like to play: ");
         if (int.TryParse(Console.ReadLine(),out int valueForTargetLegs))
         {
@@ -53,6 +37,26 @@ class Game
         }
         Console.WriteLine("You are playing to " + valueForTargetSets + " sets");
         targetSets = valueForTargetSets;
+    }
+
+    public int GetTargetSets()
+    {
+        return targetSets;
+    }
+
+    public int GetTargetLegs()
+    {
+        return targetLegs;
+    }
+
+    public void IncrementLegs()
+    {
+        targetLegs++;
+    }
+
+    public void IncrementSets()
+    {
+        targetLegs++;
     }
 
 
