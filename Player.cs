@@ -2,17 +2,24 @@ class Player
 {
     private string name;
     private int targetScore;
+    private int initialTargetScore;
     private int targetSets;
     private int targetLegs;
     
-    
+    private int currentSets;
+    private int currentLegs;
+  
 
-    public Player (string name, int targetScore, int targetSets, int targetLegs)
+
+    public Player (string name, int targetScore, int targetSets, int targetLegs, int  currentSets, int currentLegs, int initialTargetScore)
     {
         this.name = name;
+        this.initialTargetScore = targetScore;
         this.targetScore = targetScore;
         this.targetSets = targetSets;
         this.targetLegs = targetLegs;
+        this.currentSets = currentSets;
+        this.currentLegs = currentLegs;
     }
 
     public void SetupPlayer()
@@ -25,10 +32,12 @@ class Player
         if (int.TryParse(Console.ReadLine(),out int valueForTargetScore))
         {
             targetScore = valueForTargetScore;
+            initialTargetScore = valueForTargetScore;
         } else
         {
             Console.WriteLine("Not a valid number, please type a number");
             valueForTargetScore = int.Parse(Console.ReadLine());
+            initialTargetScore = valueForTargetScore;
         }
         targetScore = valueForTargetScore; 
         Console.Write("Enter the wanted number of Legs you would like to play: ");
@@ -78,6 +87,17 @@ class Player
 
     }
 
+    public int GetCurrentSets()
+    {
+        return currentSets;
+    }
+
+    public int GetCurrentLegs()
+    {
+        return currentLegs;
+    }
+    
+
     public string GetName()
     {
         return name;
@@ -94,12 +114,14 @@ class Player
 
     public void IncrementLegs()
     {
-        targetLegs++;
+        currentLegs++;
+        targetScore = initialTargetScore;
+        
     }
 
     public void IncrementSets()
     {
-        targetLegs++;
+        currentSets++;
     }
-  
+
 }
